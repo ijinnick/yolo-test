@@ -26,6 +26,8 @@ class cards extends React.Component{
             difference = dateDiffInDays(a, b);
 
         let newDate = null;
+        let newSalaryFrom = this.props.salary_range_from / 1000;
+        let newSalaryTo = this.props.salary_range_to / 1000;
         if(difference < 30){
             newDate = difference + " Days";
         }
@@ -42,9 +44,9 @@ class cards extends React.Component{
         return (
             <div>
                 <Card bg="Secondary" text="black" style={{ width: '100%',borderRadius: 'unset'}}>
-                    <Card.Body>
+                    <Card.Body id={this.props.job_id}>
                         <Card.Title style={{marginBottom: '1.1rem'}}>{this.props.title}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{this.props.salary_range}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{newSalaryFrom}K - {newSalaryTo}K</Card.Subtitle>
                             <Row style={{margin: "0 -15px 10px -15px"}}>
                                 <Col lg="2"><img src={MapLogo}  style={{width: "30px"}} alt="Map Logo" /></Col>
                                 <Col lg="4" style={inline_font}>{this.props.location}</Col>

@@ -22,10 +22,11 @@ class jobresult extends Component{
         resultsArray = (
                 Array.isArray(this.props.searchResult) ?
                 this.props.searchResult.map((jobData,index) => {
-                    return <Cards total_jobs={jobData.total_num}
+                    return <Cards job_id={jobData.id} total_jobs={jobData.total_num}
                             title={jobData.job_title}
-                                salary_range={jobData.salary_range_filters[0]["10K_to_30K"]}
-                                location={jobData.job_location}
+                                salary_range_from={jobData.salary_range_from}
+                                salary_range_to={jobData.salary_range_to}
+                                location={jobData.company_location}
                                 edu_degree={jobData.degree}
                                 xp_level={jobData.xp_lvl}
                                 job_type={jobData.job_type}
